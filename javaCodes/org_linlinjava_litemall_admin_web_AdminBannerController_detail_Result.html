@@ -52,6 +52,7 @@ public class BannerVO implements Serializable{
     private long activityId; //活动Id
     private boolean isEnable; //是否上架
     private String activityTypeDesc; //活动类型描述[枚举对应的中文]
+    private int sort; //排序值
 
     public long getId(){
         return id;
@@ -107,6 +108,14 @@ public class BannerVO implements Serializable{
 
     public void setActivityTypeDesc(String activityTypeDesc){
         this.activityTypeDesc = activityTypeDesc;
+    }
+
+    public int getSort(){
+        return sort;
+    }
+
+    public void setSort(int sort){
+        this.sort = sort;
     }
 
 }

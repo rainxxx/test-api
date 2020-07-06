@@ -23,11 +23,15 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">V1.0<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                            <li><a href="../litemall-admin-api.iml/index.html">litemall-admin-api.iml</a></li>
-                            <li><a href="../pom.xml/index.html">pom.xml</a></li>
-                            <li><a href="../src/index.html">src</a></li>
-                            <li><a href="../target/index.html">target</a></li>
-                            <li><a href="../V2.0/index.html">V2.0</a></li>
+                            <li><a href="../apidoc.log/index.html">apidoc.log</a></li>
+                            <li><a href="../index.html/index.html">index.html</a></li>
+                            <li><a href="../iosCodes/index.html">iosCodes</a></li>
+                            <li><a href="../javaCodes/index.html">javaCodes</a></li>
+                            <li><a href="../org_linlinjava_litemall_admin_web_AdminActivityController.html/index.html">org_linlinjava_litemall_admin_web_AdminActivityController.html</a></li>
+                            <li><a href="../org_linlinjava_litemall_admin_web_AdminActivityRewardRuleController.html/index.html">org_linlinjava_litemall_admin_web_AdminActivityRewardRuleController.html</a></li>
+                            <li><a href="../org_linlinjava_litemall_admin_web_AdminBannerController.html/index.html">org_linlinjava_litemall_admin_web_AdminBannerController.html</a></li>
+                            <li><a href="../org_linlinjava_litemall_admin_web_WebsiteController.html/index.html">org_linlinjava_litemall_admin_web_WebsiteController.html</a></li>
+                            <li><a href="../style.css/index.html">style.css</a></li>
                     </ul>
                 </li>
             </ul>
@@ -105,6 +109,9 @@
                     <a class="catalog-item" href="org_linlinjava_litemall_admin_web_AdminBannerController.html#setEnable">
                         启用/停用金刚区
                     </a>
+                    <a class="catalog-item" href="org_linlinjava_litemall_admin_web_AdminBannerController.html#setSort">
+                        拖拽排序
+                    </a>
             </div>
         </div>
         <div class="panel">
@@ -142,12 +149,13 @@ date 2020.07.06</em></p>
     <p><strong>请求参数</strong></p>
             <pre class="prettyprint lang-json">{
   "operationType": "int //操作类型 1.添加 2.修改【必须】",
-  "id": "long //金刚区Id【必须】",
+  "id": "long //金刚区Id",
   "name": "string //金刚区名称【必须】",
   "image": "string //金刚区图片【必须】",
   "activityType": "int //活动类型\r      @see ActivityType【必须】",
   "activityId": "long //活动Id【必须】",
-  "isEnable": "boolean //是否上架【必须】"
+  "isEnable": "boolean //是否上架【必须】",
+  "sort": "int //排序值"
 }</pre>
     <p><strong>返回结果</strong></p>
     <pre class="prettyprint lang-json">{
@@ -196,7 +204,8 @@ date 2020.07.06</em></p>
     "activityType": "int //活动类型",
     "activityId": "long //活动Id",
     "isEnable": "boolean //是否上架",
-    "activityTypeDesc": "string //活动类型描述[枚举对应的中文]"
+    "activityTypeDesc": "string //活动类型描述[枚举对应的中文]",
+    "sort": "int //排序值"
   }
 }</pre>
         <div class="form-group">
@@ -247,7 +256,8 @@ date 2020.07.06</em></p>
       "activityType": "int //活动类型",
       "activityId": "long //活动Id",
       "isEnable": "boolean //是否上架",
-      "activityTypeDesc": "string //活动类型描述[枚举对应的中文]"
+      "activityTypeDesc": "string //活动类型描述[枚举对应的中文]",
+      "sort": "int //排序值"
     }
   ]
 }</pre>
@@ -294,7 +304,7 @@ date 2020.07.06</em></p>
     <p><strong>请求参数</strong></p>
             <pre class="prettyprint lang-json">{
   "id": "long",
-  "bool": "boolean"
+  "boolValue": "boolean"
 }</pre>
     <p><strong>返回结果</strong></p>
     <pre class="prettyprint lang-json">{
@@ -305,6 +315,34 @@ date 2020.07.06</em></p>
         <div class="form-group">
             <a type="button" class="btn btn-sm btn-default" href="javaCodes/org_linlinjava_litemall_admin_web_AdminBannerController_setEnable_Result.html"><i class="fa fa-android" aria-hidden="true"></i> Android Model</a>
             <a type="button" class="btn btn-sm btn-default" href="iosCodes/org_linlinjava_litemall_admin_web_AdminBannerController_setEnable_Result.html"><i class="fa fa-apple" aria-hidden="true"></i> iOS Model</a>
+        </div>
+                        </div>
+                        <hr>
+                        <div class="action-item">
+<h2 id="setSort"><a href="#">拖拽排序 </a></h2>
+    <p class="text-muted"><em>作者: guyang
+date 2020.07.06</em></p>
+<p><strong>请求URL</strong></p>
+<p>
+    <code>/admin/banner/setSort</code>
+        <span class="label label-default">POST</span>
+</p>
+    <p><strong>请求参数</strong></p>
+            <pre class="prettyprint lang-json">[
+  {
+    "id": "long",
+    "intValue": "int"
+  }
+]</pre>
+    <p><strong>返回结果</strong></p>
+    <pre class="prettyprint lang-json">{
+  "code": "int //返回码,0表示成功",
+  "message": "string //返回提示消息",
+  "data": {}
+}</pre>
+        <div class="form-group">
+            <a type="button" class="btn btn-sm btn-default" href="javaCodes/org_linlinjava_litemall_admin_web_AdminBannerController_setSort_Result.html"><i class="fa fa-android" aria-hidden="true"></i> Android Model</a>
+            <a type="button" class="btn btn-sm btn-default" href="iosCodes/org_linlinjava_litemall_admin_web_AdminBannerController_setSort_Result.html"><i class="fa fa-apple" aria-hidden="true"></i> iOS Model</a>
         </div>
                         </div>
                         <hr>
@@ -335,6 +373,7 @@ date 2020.07.06</em></p>
             {name: '管理后台-金刚区API.金刚区列表', url: 'org_linlinjava_litemall_admin_web_AdminBannerController.html#list'},
             {name: '管理后台-金刚区API.删除金刚区', url: 'org_linlinjava_litemall_admin_web_AdminBannerController.html#delete'},
             {name: '管理后台-金刚区API.启用/停用金刚区', url: 'org_linlinjava_litemall_admin_web_AdminBannerController.html#setEnable'},
+            {name: '管理后台-金刚区API.拖拽排序', url: 'org_linlinjava_litemall_admin_web_AdminBannerController.html#setSort'},
             {name: '小程序官网API.添加官网留言', url: 'org_linlinjava_litemall_admin_web_WebsiteController.html#addUserMessage'},
     ];
 

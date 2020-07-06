@@ -46,7 +46,7 @@ public class Result implements Serializable{
 public class PageResult implements Serializable{
 
     private long total; //总记录数
-    private RewardListVO[] items; //结果集
+    private ActivityListVO[] items; //结果集
 
     public long getTotal(){
         return total;
@@ -56,11 +56,11 @@ public class PageResult implements Serializable{
         this.total = total;
     }
 
-    public RewardListVO[] getItems(){
+    public ActivityListVO[] getItems(){
         return items;
     }
 
-    public void setItems(RewardListVO[] items){
+    public void setItems(ActivityListVO[] items){
         this.items = items;
     }
 
@@ -69,12 +69,15 @@ public class PageResult implements Serializable{
 
 
 <pre class="prettyprint lang-java">
-public class RewardListVO implements Serializable{
+public class ActivityListVO implements Serializable{
 
-    private long id; //奖励规则Id
-    private int type; //规则类型 1.折扣 2.金额
-    private String name; //规则名称
-    private String description; //规则描述
+    private long id; //活动Id
+    private String name; //活动名称
+    private int type; //活动类型 10分享 20团销 30秒杀
+    private String image; //活动导航图
+    private boolean isEnable; //是否已启用(上架)
+    private long activityRewardRuleId; //奖励规则id
+    private String typeDesc; //活动类型枚举描述(分享/团销/秒杀...)
 
     public long getId(){
         return id;
@@ -82,14 +85,6 @@ public class RewardListVO implements Serializable{
 
     public void setId(long id){
         this.id = id;
-    }
-
-    public int getType(){
-        return type;
-    }
-
-    public void setType(int type){
-        this.type = type;
     }
 
     public String getName(){
@@ -100,12 +95,44 @@ public class RewardListVO implements Serializable{
         this.name = name;
     }
 
-    public String getDescription(){
-        return description;
+    public int getType(){
+        return type;
     }
 
-    public void setDescription(String description){
-        this.description = description;
+    public void setType(int type){
+        this.type = type;
+    }
+
+    public String getImage(){
+        return image;
+    }
+
+    public void setImage(String image){
+        this.image = image;
+    }
+
+    public boolean getIsEnable(){
+        return isEnable;
+    }
+
+    public void setIsEnable(boolean isEnable){
+        this.isEnable = isEnable;
+    }
+
+    public long getActivityRewardRuleId(){
+        return activityRewardRuleId;
+    }
+
+    public void setActivityRewardRuleId(long activityRewardRuleId){
+        this.activityRewardRuleId = activityRewardRuleId;
+    }
+
+    public String getTypeDesc(){
+        return typeDesc;
+    }
+
+    public void setTypeDesc(String typeDesc){
+        this.typeDesc = typeDesc;
     }
 
 }
