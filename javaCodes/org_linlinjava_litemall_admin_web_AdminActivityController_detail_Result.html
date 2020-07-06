@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Result</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.css">
+<link href="../style.css" rel="stylesheet" />
+</head>
+<body onload="PR.prettyPrint()">
+<pre class="prettyprint lang-java">
+public class Result implements Serializable{
+
+    private int code; //返回码,0表示成功
+    private String message; //返回提示消息
+    private ActivityVO data; //返回的实体类
+
+    public int getCode(){
+        return code;
+    }
+
+    public void setCode(int code){
+        this.code = code;
+    }
+
+    public String getMessage(){
+        return message;
+    }
+
+    public void setMessage(String message){
+        this.message = message;
+    }
+
+    public ActivityVO getData(){
+        return data;
+    }
+
+    public void setData(ActivityVO data){
+        this.data = data;
+    }
+
+}
+</pre>
+
+
+<pre class="prettyprint lang-java">
+public class ActivityVO implements Serializable{
+
+    private long id; //活动Id
+    private String name; //活动名称
+    private int type; //活动类型 10分享 20团销 30秒杀
+    private String image; //活动导航图
+    private boolean isEnable; //是否已启用(上架)
+    private String description; //活动描述(富文本)
+    private long activityRewardRuleId; //奖励规则id
+    private GoodsInfo[] goodsList; //参与活动的商品列表
+
+    public long getId(){
+        return id;
+    }
+
+    public void setId(long id){
+        this.id = id;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public int getType(){
+        return type;
+    }
+
+    public void setType(int type){
+        this.type = type;
+    }
+
+    public String getImage(){
+        return image;
+    }
+
+    public void setImage(String image){
+        this.image = image;
+    }
+
+    public boolean getIsEnable(){
+        return isEnable;
+    }
+
+    public void setIsEnable(boolean isEnable){
+        this.isEnable = isEnable;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public void setDescription(String description){
+        this.description = description;
+    }
+
+    public long getActivityRewardRuleId(){
+        return activityRewardRuleId;
+    }
+
+    public void setActivityRewardRuleId(long activityRewardRuleId){
+        this.activityRewardRuleId = activityRewardRuleId;
+    }
+
+    public GoodsInfo[] getGoodsList(){
+        return goodsList;
+    }
+
+    public void setGoodsList(GoodsInfo[] goodsList){
+        this.goodsList = goodsList;
+    }
+
+}
+</pre>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Result</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.css">
+<link href="../style.css" rel="stylesheet" />
+</head>
+<body onload="PR.prettyPrint()">
+<pre class="prettyprint lang-java">
+public class Result implements Serializable{
+
+    private int code; //返回码,0表示成功
+    private String message; //返回提示消息
+    private PageResult data; //返回的实体类
+
+    public int getCode(){
+        return code;
+    }
+
+    public void setCode(int code){
+        this.code = code;
+    }
+
+    public String getMessage(){
+        return message;
+    }
+
+    public void setMessage(String message){
+        this.message = message;
+    }
+
+    public PageResult getData(){
+        return data;
+    }
+
+    public void setData(PageResult data){
+        this.data = data;
+    }
+
+}
+</pre>
+
+
+<pre class="prettyprint lang-java">
+public class PageResult implements Serializable{
+
+    private long total; //总记录数
+    private RewardListVO[] items; //结果集
+
+    public long getTotal(){
+        return total;
+    }
+
+    public void setTotal(long total){
+        this.total = total;
+    }
+
+    public RewardListVO[] getItems(){
+        return items;
+    }
+
+    public void setItems(RewardListVO[] items){
+        this.items = items;
+    }
+
+}
+</pre>
+
+
+<pre class="prettyprint lang-java">
+public class RewardListVO implements Serializable{
+
+    private long id; //奖励规则Id
+    private int type; //规则类型 1.折扣 2.金额
+    private String name; //规则名称
+    private String description; //规则描述
+
+    public long getId(){
+        return id;
+    }
+
+    public void setId(long id){
+        this.id = id;
+    }
+
+    public int getType(){
+        return type;
+    }
+
+    public void setType(int type){
+        this.type = type;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public void setDescription(String description){
+        this.description = description;
+    }
+
+}
+</pre>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.js"></script>
+</body>
+</html>

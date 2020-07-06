@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>小程序官网API</title>
+    <title>管理后台-活动API</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.css">
@@ -112,7 +112,7 @@
                  aria-expanded="true" data-target="#collapse3" aria-controls="collapse3">
                 <i class="glyphicon glyphicon-align-justify"></i> 小程序官网API
             </div>
-            <div id="collapse3" class="collapse in " aria-labelledby="heading3">
+            <div id="collapse3" class="collapse " aria-labelledby="heading3">
                     <a class="catalog-item" href="org_linlinjava_litemall_admin_web_WebsiteController.html#addUserMessage">
                         添加官网留言
                     </a>
@@ -131,19 +131,24 @@
                 <div class="page-inner">
                     <div class="action-list">
                         <div class="action-item">
-<h2 id="addUserMessage"><a href="#">添加官网留言 </a></h2>
+<h2 id="insertOrUpdate"><a href="#">添加/修改活动 </a></h2>
     <p class="text-muted"><em>作者: guyang
-date 2020.07.02</em></p>
+date 2020.07.06</em></p>
 <p><strong>请求URL</strong></p>
 <p>
-    <code>/website/addUserMessage</code>
+    <code>/admin/activity/insertOrUpdate</code>
         <span class="label label-default">POST</span>
 </p>
     <p><strong>请求参数</strong></p>
             <pre class="prettyprint lang-json">{
-  "companyName": "string //企业名称【必须】",
-  "userName": "string //姓名【必须】",
-  "userPhone": "string //手机【必须】"
+  "id": "long //活动Id",
+  "name": "string //活动名称",
+  "type": "int //活动类型 10分享 20团销 30秒杀",
+  "image": "string //活动导航图",
+  "isEnable": "boolean //是否已启用(上架)",
+  "description": "string //活动描述(富文本)",
+  "activityRewardRuleId": "long //奖励规则id",
+  "spuIdList": "int[] //参数活动的商品Id列表"
 }</pre>
     <p><strong>返回结果</strong></p>
     <pre class="prettyprint lang-json">{
@@ -152,8 +157,162 @@ date 2020.07.02</em></p>
   "data": {}
 }</pre>
         <div class="form-group">
-            <a type="button" class="btn btn-sm btn-default" href="javaCodes/org_linlinjava_litemall_admin_web_WebsiteController_addUserMessage_Result.html"><i class="fa fa-android" aria-hidden="true"></i> Android Model</a>
-            <a type="button" class="btn btn-sm btn-default" href="iosCodes/org_linlinjava_litemall_admin_web_WebsiteController_addUserMessage_Result.html"><i class="fa fa-apple" aria-hidden="true"></i> iOS Model</a>
+            <a type="button" class="btn btn-sm btn-default" href="javaCodes/org_linlinjava_litemall_admin_web_AdminActivityController_insertOrUpdate_Result.html"><i class="fa fa-android" aria-hidden="true"></i> Android Model</a>
+            <a type="button" class="btn btn-sm btn-default" href="iosCodes/org_linlinjava_litemall_admin_web_AdminActivityController_insertOrUpdate_Result.html"><i class="fa fa-apple" aria-hidden="true"></i> iOS Model</a>
+        </div>
+                        </div>
+                        <hr>
+                        <div class="action-item">
+<h2 id="detail"><a href="#">活动详情 </a></h2>
+    <p class="text-muted"><em>作者: guyang
+date 2020.07.06</em></p>
+<p><strong>请求URL</strong></p>
+<p>
+    <code>/admin/activity/detail</code>
+        <span class="label label-default">GET</span>
+</p>
+    <p><strong>请求参数</strong></p>
+        <table class="table table-bordered">
+            <tr>
+                <th>参数名</th>
+                <th>类型</th>
+                <th>必须</th>
+                <th>描述</th>
+            </tr>
+                <tr>
+                    <td>id</td>
+                    <td>long</td>
+                    <td>是</td>
+                    <td>活动Id</td>
+                </tr>
+        </table>
+    <p><strong>返回结果</strong></p>
+    <pre class="prettyprint lang-json">{
+  "code": "int //返回码,0表示成功",
+  "message": "string //返回提示消息",
+  "data": {
+    "id": "long //活动Id",
+    "name": "string //活动名称",
+    "type": "int //活动类型 10分享 20团销 30秒杀",
+    "image": "string //活动导航图",
+    "isEnable": "boolean //是否已启用(上架)",
+    "description": "string //活动描述(富文本)",
+    "activityRewardRuleId": "long //奖励规则id",
+    "goodsList": "GoodsInfo{} //参与活动的商品列表"
+  }
+}</pre>
+        <div class="form-group">
+            <a type="button" class="btn btn-sm btn-default" href="javaCodes/org_linlinjava_litemall_admin_web_AdminActivityController_detail_Result.html"><i class="fa fa-android" aria-hidden="true"></i> Android Model</a>
+            <a type="button" class="btn btn-sm btn-default" href="iosCodes/org_linlinjava_litemall_admin_web_AdminActivityController_detail_Result.html"><i class="fa fa-apple" aria-hidden="true"></i> iOS Model</a>
+        </div>
+                        </div>
+                        <hr>
+                        <div class="action-item">
+<h2 id="list"><a href="#">活动列表 </a></h2>
+    <p class="text-muted"><em>作者: guyang
+date 2020.07.06</em></p>
+<p><strong>请求URL</strong></p>
+<p>
+    <code>/admin/activity/list</code>
+        <span class="label label-default">GET</span>
+</p>
+    <p><strong>请求参数</strong></p>
+        <table class="table table-bordered">
+            <tr>
+                <th>参数名</th>
+                <th>类型</th>
+                <th>必须</th>
+                <th>描述</th>
+            </tr>
+                <tr>
+                    <td>id</td>
+                    <td>long</td>
+                    <td>否</td>
+                    <td>活动Id</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>string</td>
+                    <td>否</td>
+                    <td>活动名称[模糊匹配]</td>
+                </tr>
+                <tr>
+                    <td>isEnable</td>
+                    <td>boolean</td>
+                    <td>否</td>
+                    <td>是否上架</td>
+                </tr>
+        </table>
+    <p><strong>返回结果</strong></p>
+    <pre class="prettyprint lang-json">{
+  "code": "int //返回码,0表示成功",
+  "message": "string //返回提示消息",
+  "data": {
+    "total": "long //总记录数",
+    "items": [
+      {
+        "id": "long //奖励规则Id",
+        "type": "int //规则类型 1.折扣 2.金额",
+        "name": "string //规则名称",
+        "description": "string //规则描述"
+      }
+    ]
+  }
+}</pre>
+        <div class="form-group">
+            <a type="button" class="btn btn-sm btn-default" href="javaCodes/org_linlinjava_litemall_admin_web_AdminActivityController_list_Result.html"><i class="fa fa-android" aria-hidden="true"></i> Android Model</a>
+            <a type="button" class="btn btn-sm btn-default" href="iosCodes/org_linlinjava_litemall_admin_web_AdminActivityController_list_Result.html"><i class="fa fa-apple" aria-hidden="true"></i> iOS Model</a>
+        </div>
+                        </div>
+                        <hr>
+                        <div class="action-item">
+<h2 id="delete"><a href="#">删除活动 </a></h2>
+    <p class="text-muted"><em>作者: guyang
+date 2020.07.06</em></p>
+<p><strong>请求URL</strong></p>
+<p>
+    <code>/admin/activity/delete</code>
+        <span class="label label-default">POST</span>
+</p>
+    <p><strong>请求参数</strong></p>
+            <pre class="prettyprint lang-json">{
+  "id": "long"
+}</pre>
+    <p><strong>返回结果</strong></p>
+    <pre class="prettyprint lang-json">{
+  "code": "int //返回码,0表示成功",
+  "message": "string //返回提示消息",
+  "data": {}
+}</pre>
+        <div class="form-group">
+            <a type="button" class="btn btn-sm btn-default" href="javaCodes/org_linlinjava_litemall_admin_web_AdminActivityController_delete_Result.html"><i class="fa fa-android" aria-hidden="true"></i> Android Model</a>
+            <a type="button" class="btn btn-sm btn-default" href="iosCodes/org_linlinjava_litemall_admin_web_AdminActivityController_delete_Result.html"><i class="fa fa-apple" aria-hidden="true"></i> iOS Model</a>
+        </div>
+                        </div>
+                        <hr>
+                        <div class="action-item">
+<h2 id="setEnable"><a href="#">启用/停用活动 </a></h2>
+    <p class="text-muted"><em>作者: guyang
+date 2020.07.06</em></p>
+<p><strong>请求URL</strong></p>
+<p>
+    <code>/admin/activity/setEnable</code>
+        <span class="label label-default">POST</span>
+</p>
+    <p><strong>请求参数</strong></p>
+            <pre class="prettyprint lang-json">{
+  "id": "long",
+  "bool": "boolean"
+}</pre>
+    <p><strong>返回结果</strong></p>
+    <pre class="prettyprint lang-json">{
+  "code": "int //返回码,0表示成功",
+  "message": "string //返回提示消息",
+  "data": {}
+}</pre>
+        <div class="form-group">
+            <a type="button" class="btn btn-sm btn-default" href="javaCodes/org_linlinjava_litemall_admin_web_AdminActivityController_setEnable_Result.html"><i class="fa fa-android" aria-hidden="true"></i> Android Model</a>
+            <a type="button" class="btn btn-sm btn-default" href="iosCodes/org_linlinjava_litemall_admin_web_AdminActivityController_setEnable_Result.html"><i class="fa fa-apple" aria-hidden="true"></i> iOS Model</a>
         </div>
                         </div>
                         <hr>

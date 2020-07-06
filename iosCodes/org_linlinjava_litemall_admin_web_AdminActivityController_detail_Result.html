@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Result</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.css">
+<link href="../style.css" rel="stylesheet" />
+</head>
+<body onload="PR.prettyPrint()">
+<pre class="prettyprint">
+<xmp>
+#import <Foundation/Foundation>;
+
+@interface Result : NSObject
+
+//返回码,0表示成功
+@property (nonatomic, strong) NSInteger code;
+//返回提示消息
+@property (nonatomic, assign) NSString message;
+//返回的实体类
+@property (nonatomic, strong) ActivityVO data;
+
+
+@end
+</xmp>
+</pre>
+
+<pre class="prettyprint">
+<xmp>
+#import <Foundation/Foundation>;
+
+@interface ActivityVO : NSObject
+
+//活动Id
+@property (nonatomic, strong) long id;
+//活动名称
+@property (nonatomic, assign) NSString name;
+//活动类型 10分享 20团销 30秒杀
+@property (nonatomic, strong) NSInteger type;
+//活动导航图
+@property (nonatomic, assign) NSString image;
+//是否已启用(上架)
+@property (nonatomic, strong) BOOL isEnable;
+//活动描述(富文本)
+@property (nonatomic, assign) NSString description;
+//奖励规则id
+@property (nonatomic, strong) long activityRewardRuleId;
+//参与活动的商品列表
+@property (nonatomic, strong) GoodsInfo[] goodsList;
+
+
+@end
+</xmp>
+</pre>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.js"></script>
+</body>
+</html>

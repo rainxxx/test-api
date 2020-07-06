@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Result</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.css">
+<link href="../style.css" rel="stylesheet" />
+</head>
+<body onload="PR.prettyPrint()">
+<pre class="prettyprint lang-java">
+public class Result implements Serializable{
+
+    private int code; //返回码,0表示成功
+    private String message; //返回提示消息
+    private RewardRuleVO data; //返回的实体类
+
+    public int getCode(){
+        return code;
+    }
+
+    public void setCode(int code){
+        this.code = code;
+    }
+
+    public String getMessage(){
+        return message;
+    }
+
+    public void setMessage(String message){
+        this.message = message;
+    }
+
+    public RewardRuleVO getData(){
+        return data;
+    }
+
+    public void setData(RewardRuleVO data){
+        this.data = data;
+    }
+
+}
+</pre>
+
+
+<pre class="prettyprint lang-java">
+public class RewardRuleVO implements Serializable{
+
+    private long id; //奖励规则Id
+    private int type; //规则类型 1.折扣 2.金额
+    private String name; //规则名称
+    private ShareRewardRuleDetail[] rules; //奖励规则明细
+    private String description; //规则描述
+
+    public long getId(){
+        return id;
+    }
+
+    public void setId(long id){
+        this.id = id;
+    }
+
+    public int getType(){
+        return type;
+    }
+
+    public void setType(int type){
+        this.type = type;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public ShareRewardRuleDetail[] getRules(){
+        return rules;
+    }
+
+    public void setRules(ShareRewardRuleDetail[] rules){
+        this.rules = rules;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public void setDescription(String description){
+        this.description = description;
+    }
+
+}
+</pre>
+
+
+<pre class="prettyprint lang-java">
+public class ShareRewardRuleDetail implements Serializable{
+
+    private int invitedCount; //邀请人数
+    private double reward; //奖励 折扣or金额
+
+    public int getInvitedCount(){
+        return invitedCount;
+    }
+
+    public void setInvitedCount(int invitedCount){
+        this.invitedCount = invitedCount;
+    }
+
+    public double getReward(){
+        return reward;
+    }
+
+    public void setReward(double reward){
+        this.reward = reward;
+    }
+
+}
+</pre>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.js"></script>
+</body>
+</html>

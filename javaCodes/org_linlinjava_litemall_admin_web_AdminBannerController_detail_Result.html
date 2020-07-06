@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Result</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.css">
+<link href="../style.css" rel="stylesheet" />
+</head>
+<body onload="PR.prettyPrint()">
+<pre class="prettyprint lang-java">
+public class Result implements Serializable{
+
+    private int code; //返回码,0表示成功
+    private String message; //返回提示消息
+    private BannerVO data; //返回的实体类
+
+    public int getCode(){
+        return code;
+    }
+
+    public void setCode(int code){
+        this.code = code;
+    }
+
+    public String getMessage(){
+        return message;
+    }
+
+    public void setMessage(String message){
+        this.message = message;
+    }
+
+    public BannerVO getData(){
+        return data;
+    }
+
+    public void setData(BannerVO data){
+        this.data = data;
+    }
+
+}
+</pre>
+
+
+<pre class="prettyprint lang-java">
+public class BannerVO implements Serializable{
+
+    private long id; //金刚区Id
+    private String name; //金刚区名称
+    private String image; //金刚区图片
+    private int activityType; //活动类型
+    private long activityId; //活动Id
+    private boolean isEnable; //是否上架
+    private String activityTypeDesc; //活动类型描述[枚举对应的中文]
+
+    public long getId(){
+        return id;
+    }
+
+    public void setId(long id){
+        this.id = id;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getImage(){
+        return image;
+    }
+
+    public void setImage(String image){
+        this.image = image;
+    }
+
+    public int getActivityType(){
+        return activityType;
+    }
+
+    public void setActivityType(int activityType){
+        this.activityType = activityType;
+    }
+
+    public long getActivityId(){
+        return activityId;
+    }
+
+    public void setActivityId(long activityId){
+        this.activityId = activityId;
+    }
+
+    public boolean getIsEnable(){
+        return isEnable;
+    }
+
+    public void setIsEnable(boolean isEnable){
+        this.isEnable = isEnable;
+    }
+
+    public String getActivityTypeDesc(){
+        return activityTypeDesc;
+    }
+
+    public void setActivityTypeDesc(String activityTypeDesc){
+        this.activityTypeDesc = activityTypeDesc;
+    }
+
+}
+</pre>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.js"></script>
+</body>
+</html>
